@@ -9,28 +9,19 @@ import VueResource from 'vue-resource';
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
-export var router = new VueRouter();
-
 // set up router and match routes to components
-router.map({
-	'/home': {
-		component: Home
-	},
-	'/signup': {
-		component: Signup
-	},
-	'/login': {
-		component: Login
-	},
-	'/profile': {
-		component: Profile
-	},
+var router = new VueRouter({
+	routes: [
+		{ path: '/', component: Home },
+		{ path: '/signup', component: Signup },
+		{ path: 'login', component: Login },
+		{ path: '/profile', component: Profile },
+		{ path: '*', component: Home }
+	]
 });
 
-// Redirect to the home route if any routes are unmatched
-router.redirect({
-	'*': '/home'
+new Vue({
+	el: '#app',
+	router: router,
+	template: '<router-view></router-view>'
 });
-
-// start the app on the #app div
-router.start(App, '#app');
