@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import auth from '../auth'
+import auth from '../auth/auth.js'
 export default {
 	data() {
 		return {
