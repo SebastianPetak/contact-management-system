@@ -32,4 +32,18 @@ module.exports = function(app) {
 			res.status(500).send({ error: 'Error occured' });
 		});
 	});
+
+	// CONTACT (individual) PAGE =============================================
+	app.get('/contact/:id', function(req, res) {
+		Contact.findOne({ _id : req.params.id })
+		.exec()
+		.then(function(contact) {
+			res.render('contact', {
+				contact: contact
+			});
+		})
+		.catch(function(err) {
+			res.status(500).send({ error: 'Error occured' });
+		});
+	});
 };
