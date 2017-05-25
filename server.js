@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT || 8080;
+var path = require('path');
 var bodyParser = require('body-parser');
 var Promise = require('bluebird');
 var mongoose = require('mongoose');
@@ -18,8 +19,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: true
 }));
+
 // set up ejs for templating
 app.set('view engine', 'ejs');
+
+// setup static files
+app.use(express.static(path.join(__dirname, 'views/css')));
 
 // Routes ==================================================================
 routes(app);

@@ -1,32 +1,30 @@
-<!doctype html>
-<html>
-<head>
-	<title>Contact Management System</title>
-	<!-- Load bootstrap and fontawesome -->
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-
-	<style>
-
-	</style>
-</head>
-<body>
+<%- include heading.ejs %>
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12 columns">
-				<h1>Contacts Page.</h1>
+				<h1>Contacts</h1>
 				<hr>
-				<% contacts.forEach(function(contact) { %>
-					<p>Name: <%= contact.name %></p>
-					<p>Occupation: <%= contact.occupation %></p>
-					<p>Employer: <%= contact.employer %></p>
-					<p>Phone: <%= contact.phone %></p>
-					<p>Email: <%= contact.email %></p>
-					<p>Notes: <%= contact.notes %></p>
-					<hr>
-				<% }); %>
+				<table class="table table-hover table-striped">
+					<thead>
+						<tr>
+							<th>Firstname</th>
+							<th>Lastname</th>
+							<th>Occupation</th>
+							<th>Employer</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% contacts.forEach(function(contact) { %>
+						<tr>
+							<td><%= contact.firstName %></td>
+							<td><%= contact.lastName %></td>
+							<td><%= contact.occupation %></td>
+							<td><%= contact.employer %></td>
+						</tr>
+						<% }); %>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-</div>
-</body>
-</html>
+<%- include footer.ejs %>
