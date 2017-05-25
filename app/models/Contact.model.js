@@ -2,20 +2,41 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ContactSchema = new Schema({
-	firstName: {
+	userId: {
 		type: String,
 		required: true
+	}
+	firstName: {
+		type: String,
+		required: true,
+		trim: true
 	},
 	lastName: {
 		type: String,
-		required: true
+		required: true,
+		trim: true
 	},
 	picture: String,
-	occupation: String,
-	employer: String,
-	phone: String,
-	email: String,
-	notes: String
+	occupation: {
+		type: String,
+		trim: true
+	}
+	employer: {
+		type: String,
+		trim: true
+	}
+	phone: {
+		type: String,
+		trim: true
+	}
+	email: {
+		type: String,
+		trim: true
+	}
+	notes: {
+		type: String,
+		trim: true
+	}
 });
 
 module.exports = mongoose.model('Contact', ContactSchema);
