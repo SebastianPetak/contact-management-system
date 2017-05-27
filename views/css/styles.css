@@ -28,12 +28,14 @@ h2 {
 	margin-left: 2em;
 }
 .navbar-nav li a {
- line-height: 50px; /* vertically center navigation text */
- color: white !important;
- font-family: 'Cabin Condensed', sans-serif;
- font-size: 2em;
- margin-right: 2em;
+	vertical-align: center;
+	line-height: 50px; /* vertically center navigation text */
+	color: white !important;
+	font-family: 'Cabin Condensed', sans-serif;
+	font-size: 2em;
+	margin-right: 2em;
 }
+
 /* Extra small devices (portrait phones, less than 576px) */
 /* No media query since this is the default in Bootstrap */
 
