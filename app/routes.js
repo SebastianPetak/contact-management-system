@@ -3,7 +3,8 @@ var Contact = require('./models/Contact.model');
 module.exports = function(app) {
 	// INDEX PAGE ============================================================
 	app.get('/', function(req, res) {
-		res.render('index.ejs');
+		res.render('index.ejs', {
+			title: 'Homepage - CMS'});
 	});
 
 	// CONTACTS PAGE =========================================================
@@ -25,6 +26,7 @@ module.exports = function(app) {
 		.exec()
 		.then(function(contacts) {
 			res.render('contacts', {
+				title: 'Contacts - CMS',
 				contacts: contacts
 			});
 		})
@@ -51,6 +53,7 @@ module.exports = function(app) {
 		.exec()
 		.then(function(contact) {
 			res.render('contact', {
+				title: contact.firstName + contact.lastName + 'Profile - CMS',
 				contact: contact
 			});
 		})
