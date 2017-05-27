@@ -7,6 +7,13 @@ module.exports = function(app) {
 			title: 'Homepage - CMS'});
 	});
 
+	// SIGN UP PAGE ==========================================================
+	app.get('/register', function(req, res) {
+		res.render('register.ejs', {
+			title: 'Sign Up - CMS',
+		})
+	})
+
 	// CONTACTS PAGE =========================================================
 	// Get all contacts in json
 	app.get('/contacts-api', function(req,res) {
